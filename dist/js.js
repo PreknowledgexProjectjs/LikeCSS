@@ -35,6 +35,10 @@ function csejs(){
 	addMenu({ onclick:"csejs()",icon:"fa fa-refresh",title:"Reload JS" });
 }
 
+function setTheme(id){
+	$('body').attr('class',`thm${id}`);
+}
+
 function hideAlert(id){
 	$('#alert-'+id).hide();
 }
