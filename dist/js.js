@@ -1,4 +1,5 @@
 /* CSS Expirment JS */
+var current_theme = localStorage.theme;
 /*Requires JQUERY */
 csejs();
 function csejs(){
@@ -36,8 +37,24 @@ function csejs(){
 }
 
 function setTheme(id){
+	if(id == "dark-mode"){
+		localStorage.setItem('theme',`${id}`);
+		return;
+	}
 	$('body').attr('class',`thm${id}`);
+	localStorage.setItem('theme',`thm${id}`);
 }
+
+if(localStorage.theme == undefined){
+}else if(localStorage.theme == null){
+}else{
+	$('body').attr('class',`${localStorage.theme}`);
+}
+
+setInterval(() => {
+	if(current_theme == localStorage.theme) return;
+	$('body').attr('class',`${localStorage.theme}`);
+},1200);
 
 function hideAlert(id){
 	$('#alert-'+id).hide();
