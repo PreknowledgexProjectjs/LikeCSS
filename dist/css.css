@@ -525,6 +525,10 @@ ul {
   border-radius: 100%;
   font-size: 10px;
 }
+.dark-mode .plusic:hover{
+  background: #4f4949;
+  color: white;
+}
 /*xbrowse ends*/
 /* Dark Mode */
 .dark-mode *{
