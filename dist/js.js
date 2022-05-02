@@ -1,9 +1,15 @@
 /* CSS Expirment JS */
 var current_theme = localStorage.theme;
+var jquery ;
+if (typeof process === 'undefined' || process === null) {
+    jquery = $;
+}else{
+	jquery = require('jquery');
+}
 /*Requires JQUERY */
 csejs();
 function csejs(){
-	$('body').append(`<div id="contextMenu" class="context-menu" style="display: none"><ul class="menu" id="menu"> </ul></div> `);
+	jquery('body').append(`<div id="contextMenu" class="context-menu" style="display: none"><ul class="menu" id="menu"> </ul></div> `);
 	document.onclick = hideMenu;
 	document.oncontextmenu = rightClick;
 
@@ -26,7 +32,7 @@ function csejs(){
 	}
 
 	function addMenu(data){
-		$('#menu').append(`
+		jquery('#menu').append(`
 			<li class="inspt"><a href="#" onclick="${data.onclick}"><i class="${data.icon}" aria-hidden="true"></i> ${data.title}</a></li>  
 		`);
 	}
@@ -41,22 +47,22 @@ function setTheme(id){
 		localStorage.setItem('theme',`${id}`);
 		return;
 	}
-	$('body').attr('class',`thm${id}`);
+	jquery('body').attr('class',`thm${id}`);
 	localStorage.setItem('theme',`thm${id}`);
 }
 
 if(localStorage.theme == undefined){
 }else if(localStorage.theme == null){
 }else{
-	$('body').attr('class',`${localStorage.theme}`);
+	jquery('body').attr('class',`${localStorage.theme}`);
 }
 
 setInterval(() => {
 	if(current_theme == localStorage.theme) return;
-	$('body').attr('class',`${localStorage.theme}`);
+	jquery('body').attr('class',`${localStorage.theme}`);
 },1200);
 
 function hideAlert(id){
-	$('#alert-'+id).hide();
+	jquery('#alert-'+id).hide();
 }
 /* END JS*/
