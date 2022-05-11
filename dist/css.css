@@ -50,19 +50,19 @@ body {
 
 .btn-success{
   background: #17b814;
-  box-shadow: 1px 2px #25c922;
+  --unused:box-shadow: 1px 2px #25c922;
   color: white;
 }
 
 .btn-danger{
   background: #b50915;
-  box-shadow: 1px 2px #c9202c;
+  --unused:box-shadow: 1px 2px #c9202c;
   color: white;
 }
 
 .btn-info{
   background: #1159ab;
-  box-shadow: 1px 2px #1f72d1;
+  --unused:box-shadow: 1px 2px #1f72d1;
   color: white;
 }
 
@@ -158,10 +158,14 @@ button:focus {
 /*cards*/
 .card{
   border : 0.32px solid #ededed;
-  padding: 1px 1px;
+  padding: 4px 4px;
   background: #fcfcfc;
-  box-shadow: 5px 10px #fcfcfc;
+  --unused:box-shadow: 5px 10px #fcfcfc;
   border-radius: 15px;
+}
+
+.card .card-title{
+  text-align: center;
 }
 
 .card-row{
@@ -281,51 +285,51 @@ button:focus {
 .alert-success{
   background: #17b814;
   border: 1px solid #17b814;
-  box-shadow: 1px 2px #25c922;
+  --unused:box-shadow: 1px 2px #25c922;
   color: white;
 }
 
 .alert-success button{
-  box-shadow: 0px 0px 0px;
+  --unused:box-shadow: 0px 0px 0px;
   background: #17b814;
 }
 
 .alert-success button:hover{
-  box-shadow: 0px 0px 0px;
+  --unused:box-shadow: 0px 0px 0px;
   background: #17b814;
 }
 
 .alert-danger{
   background: #b50915;
   border: 1px solid #b50915;
-  box-shadow: 1px 2px #b50915;
+  --unused:box-shadow: 1px 2px #b50915;
   color: white;
 }
 
 .alert-danger button{
-  box-shadow: 0px 0px 0px;
+  --unused:box-shadow: 0px 0px 0px;
   background: #b50915;
 }
 
 .alert-danger button:hover{
-  box-shadow: 0px 0px 0px;
+  --unused:box-shadow: 0px 0px 0px;
   background: #b50915;
 }
 
 .alert-info{
   background: #1159ab;
   border: 1px solid #1f72d1;
-  box-shadow: 1px 2px #1f72d1;
+  --unused:box-shadow: 1px 2px #1f72d1;
   color: white;
 }
 
 .alert-info button{
-  box-shadow: 0px 0px 0px;
+  --unused:box-shadow: 0px 0px 0px;
   background: #1159ab;
 }
 
 .alert-info button:hover{
-  box-shadow: 0px 0px 0px;
+  --unused:box-shadow: 0px 0px 0px;
   background: #1159ab;
 }
 
@@ -360,14 +364,19 @@ button:focus {
   color: white;
 }
 .nav-primary li{
-  background: #3438ad;
-  margin: 0;
+  margin-top: 8px;
+  padding: 0px 0px;
+  height: 26px;
   color: white;
 }
 .nav-primary li a{
   padding: 9px 9px;
+  background: #3e419c;
   text-decoration: none;
   color: white;
+}
+.nav-primary li a:hover{
+  background: #4a4eb5;
 }
 /*context menu from dev.to */
 ul {
@@ -381,7 +390,7 @@ ul {
   flex-direction: column;
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: 0 10px 20px rgb(64 64 64 / 5%);
+  --unused:box-shadow: 0 10px 20px rgb(64 64 64 / 5%);
   padding: 10px 0;
 }
 .menu > li > a {
@@ -591,7 +600,7 @@ ul {
   color: white;
 }
 .dark-mode .card{
-  box-shadow: 5px 10px #262522;
+  --unused:box-shadow: 5px 10px #262522;
 }
 .dark-mode .bars .address{
   background: black;
@@ -605,7 +614,7 @@ ul {
 .thm1 button, .thm1 input, .thm1 select, .thm1 textarea, .thm1 .card, .thm1 .tab, .thm1 .menu , .thm1 a , .thm1 button, .thm1 .chip , .thm1 .action, .thm1 .address, .thm1 .bars, .thm1 .bars, .thm1 , .thm1 .plusic , .thm1 .side li ,.thm1{
   background: linear-gradient(to right, #1380ed 0%, #649ed9 100%);
   border : 1px solid linear-gradient(to right, #1380ed 0%, #649ed9 100%);
-  box-shadow: 1px 2px #649ed9;
+  --unused:box-shadow: 1px 2px #649ed9;
   color: white;
 }
 .thm1 .sidebar{
