@@ -92,6 +92,7 @@ body {
 /* form */
 .form-group{
   margin-top: 1.1%;
+  font-weight: bold;
   display: block;
 }
 
@@ -524,12 +525,14 @@ ul {
 .bars .address {
   width: 70%;
   height: 22px;
-  padding: 4px 11px;
-  border: 0px solid black;
-  border-radius: 15px;
-  background: #eceff2;
-  outline: none;
-  font-size: 12px;
+  font-weight: bold;
+  padding: 8px 18px;
+  cursor: auto;
+  border: 1px solid black;
+  text-decoration: none;
+  background: #f7f7f7;
+  color: black;
+  border-radius:5px;
 }
 .bars .address:focus {
   background: #fff;
