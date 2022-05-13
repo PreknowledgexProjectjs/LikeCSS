@@ -3,29 +3,29 @@
 
 #### Creating Body Container
 ```html
-	<div class="body-container">
-		<!-- Your Content here -->
-	</div>
+<div class="body-container">
+	<!-- Your Content here -->
+</div>
 ```
 
 #### Simple Buttons
 ```html
-	<button class="button btn-[type]">Hi!</button>
+<button class="button btn-[type]">Hi!</button>
 ```
 ##### Button Types
 ###### Success Type
 ```html
-	<button class="button btn-success">Hello Success!</button>
+<button class="button btn-success">Hello Success!</button>
 ```
 
 ###### Info Type
 ```html
-	<button class="button btn-info">Hello Info!</button>
+<button class="button btn-info">Hello Info!</button>
 ```
 
 ###### Danger Type
 ```html
-	<button class="button btn-danger">Hello Danger!</button>
+<button class="button btn-danger">Hello Danger!</button>
 ```
 
 #### Chips
