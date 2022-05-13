@@ -6,8 +6,16 @@ if (typeof process === 'undefined' || process === null) {
 }else{
 	jquery = require('jquery');
 }
+$('head').append(`<div id="themes"></div>`);
 /*Requires JQUERY */
+function addMenu(data){
+	jquery('#menu').append(`
+		<li class="inspt"><a href="#" onclick="${data.onclick}"><i class="${data.icon}" aria-hidden="true"></i> ${data.title}</a></li>  
+	`);
+}
 lcss();
+loadThemes();
+setInterval(() => loadThemes() ,200);
 function lcss(){
 	jquery('#menu').html('');
 	jquery('body').append(`<div id="contextMenu" class="context-menu" style="display: none"><ul class="menu" id="menu"> </ul></div> `);
@@ -32,17 +40,13 @@ function lcss(){
 	    }
 	}
 
-	function addMenu(data){
-		jquery('#menu').append(`
-			<li class="inspt"><a href="#" onclick="${data.onclick}"><i class="${data.icon}" aria-hidden="true"></i> ${data.title}</a></li>  
-		`);
-	}
-
 	//Default Menus
 	addMenu({ onclick:"window.location.reload()",icon:"fa fa-refresh",title:"Reload" });
 	addMenu({ onclick:"lcss()",icon:"fa fa-refresh",title:"Reload JS" });
 	addMenu({ onclick:`alert('Press Ctrl+Shift+I')`,icon:"fa fa-code",title:"Ctrl+Shift+I (Inspect Element)" });
 }
+
+
 
 function setTheme(id){
 	if(id == "dark-mode"){
@@ -59,27 +63,29 @@ function addTheme(css,id){
 	}
 	if(localStorage.getItem(id) !== null) return;
 	localStorage.setItem(`thm${id}` , css);
-	$('head').append(`
+	$('head #themes').append(`
 		<style type="text/css">
 			${css}
 		</style>
 	`);
 }
 
-$.each(localStorage , (index,data) => {
-    if(isValidLS(index) == true) return;
-    console.log(index);
-    if(index.startsWith('thm')){
-    	$('head').append(`
-    		<style type="text/css">
-    			/*Theme ${index} */ \n
-				${localStorage.getItem(index)}
-				\n
-				/*Theme Code Ends ${index} */
-			</style>
-    	`);
-    }
-});
+function loadThemes(){
+	$('head #themes').html('');
+	$.each(localStorage , (index,data) => {
+	    if(isValidLS(index) == true) return;
+	    if(index.startsWith('thm')){
+	    	$('head #themes').append(`
+	<style type="text/css">
+	/*Theme ${index} */ \n
+	${localStorage.getItem(index)}
+	\n
+	/*Theme Code Ends ${index} */
+	</style>
+			`);
+	    }
+	});
+}
 
 function isValidLS(vtc) {
  if(vtc.toString() == "length") return true;
