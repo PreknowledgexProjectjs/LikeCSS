@@ -22,27 +22,45 @@
 		</ul>
 	</div>
 	<div class="body-container">	
+		<div class="modal" id="modal-1">
+			<div class="modal-body" id="mb-1">
+				<div class="modal-title">
+					<h3> Hello Modal </h3>
+					<button class="button close" onclick="removeModal(1)">X</button>
+				</div>
+				<div class="modal-content">
+					<p>123 test</p>
+				</div>
+			</div>
+		</div>
+
+		<button class="button btn-info" onclick="showModal(1)">Show Modal</button>
+
 		<h1 class="align-center">Hello 123</h1>
 		<img class="align-left img" src="https://www.w3schools.com/howto/img_paris.jpg" alt="Paris" class="center">
 
 		<div class="alert alert-success" id="alert-1">
 			<h5 class="alert-title">Hello alert 123</h5>
-			<button class="button btn-danger" onclick="hideAlert(1)">X</button>
+			<button class="button btn-normal-danger" onclick="hideAlert(1)">X</button>
 		</div>
 
 		<div class="alert alert-info" id="alert-2">
 			<h5 class="alert-title">Hello alert 123</h5>
-			<button class="button btn-danger" onclick="hideAlert(2)">X</button>
+			<button class="button btn-normal-danger" onclick="hideAlert(2)">X</button>
 		</div>
 
 		<div class="alert alert-danger" id="alert-3">
 			<h5 class="alert-title">Hello alert 123</h5>
-			<button class="button btn-danger" onclick="hideAlert(3)">X</button>
+			<button class="button btn-normal-danger" onclick="hideAlert(3)">X</button>
 		</div>
 
 		<button class="button btn-info">Hello Info!</button>
 		<button class="button btn-success">Hello Success!</button>
 		<button class="button btn-danger">Hello Danger!</button>
+
+		<button class="button btn-normal-info">Hello Info!</button>
+		<button class="button btn-normal-success">Hello Success!</button>
+		<button class="button btn-normal-danger">Hello Danger!</button>
 
 		<div class="form-group">
 			<label for="hello">Hello 123456</label>
@@ -124,39 +142,41 @@
 			</div>
 			
 		</div>
-		<div class="tabs"> 
-        <div
-              class="tab"
-            >
-            <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" width="16" alt="icon" />
-               <div className="title">
-                 <div className="title-content">123Test</div>
-               </div>
-               <div className="close">
-                 <IconClose />
-              </div>
-            </div>  
-            <span type="plus" className="plusic">
-              <IconPlus />
-            </span>
-        </div>
+		<div class="container" style="margin:0; padding: 0px 0px;">
+			<div class="tabs"> 
+	        <div
+	              class="tab"
+	            >
+	            <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" width="16" alt="icon" />
+	               <div className="title">
+	                 <div className="title-content">123Test</div>
+	               </div>
+	               <div className="close">
+	                 <IconClose />
+	              </div>
+	            </div>  
+	            <span type="plus" className="plusic">
+	              <IconPlus />
+	            </span>
+	        </div>
 
 
-        <div
-              class="tab active"
-            >
-            <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" width="16" alt="icon" />
-               <div className="title">
-                 <div className="title-content">123Test</div>
-               </div>
-               <div className="close">
-                 <IconClose />
-              </div>
-            </div>  
-            <span type="plus" className="plusic">
-              <IconPlus />
-            </span>
-        </div>
+	        <div
+	              class="tab active"
+	            >
+	            <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" width="16" alt="icon" />
+	               <div className="title">
+	                 <div className="title-content">123Test</div>
+	               </div>
+	               <div className="close">
+	                 <IconClose />
+	              </div>
+	            </div>  
+	            <span type="plus" className="plusic">
+	              <IconPlus />
+	            </span>
+	        </div>
+	    </div>
     </div>
 	</div>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

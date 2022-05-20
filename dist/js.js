@@ -6,11 +6,12 @@ if (typeof process === 'undefined' || process === null) {
 }else{
 	jquery = require('jquery');
 }
-$('head').append(`<div id="themes"></div>`);
+jquery('head').append(`<div id="themes"></div>`);
+jquery('body').append(`<div class="backdrop" id="bkdrplcss" style="position:fixed; width:100%; height:100%;"></div>`);
 /*Requires JQUERY */
 function addMenu(data){
 	jquery('#menu').append(`
-		<li class="inspt"><a href="#" onclick="${data.onclick}"><i class="${data.icon}" aria-hidden="true"></i> ${data.title}</a></li>  
+		<li class="inspt"><a href="#" onclick="${data.onclick}"><i class="${data.icon}" aria-hidden="true"></i> jquery{data.title}</a></li>  
 	`);
 }
 lcss();
@@ -50,11 +51,11 @@ function lcss(){
 
 function setTheme(id){
 	if(id == "dark-mode"){
-		localStorage.setItem('theme',`${id}`);
+		localStorage.setItem('theme',`jquery{id}`);
 		return;
 	}
-	jquery('body').attr('class',`thm${id}`);
-	localStorage.setItem('theme',`thm${id}`);
+	jquery('body').attr('class',`thmjquery{id}`);
+	localStorage.setItem('theme',`thmjquery{id}`);
 }
 
 function addTheme(css,id){
@@ -63,7 +64,7 @@ function addTheme(css,id){
 	}
 	if(localStorage.getItem(id) !== null) return;
 	localStorage.setItem(`thm${id}` , css);
-	$('head #themes').append(`
+	jquery('head #themes').append(`
 		<style type="text/css">
 			${css}
 		</style>
@@ -71,11 +72,11 @@ function addTheme(css,id){
 }
 
 function loadThemes(){
-	$('head #themes').html('');
-	$.each(localStorage , (index,data) => {
+	jquery('head #themes').html('');
+	jquery.each(localStorage , (index,data) => {
 	    if(isValidLS(index) == true) return;
 	    if(index.startsWith('thm')){
-	    	$('head #themes').append(`
+	    	jquery('head #themes').append(`
 	<style type="text/css">
 	/*Theme ${index} */ \n
 	${localStorage.getItem(index)}
@@ -85,6 +86,24 @@ function loadThemes(){
 			`);
 	    }
 	});
+}
+
+function showModal(id){
+	jquery('#modal-'+id).show();
+	jquery('#bkdrplcss').addClass('modal-backdrop');
+	//jquery('body').attr('onclick',`removeModal(${id});`);
+	jquery('#modal-'+id).addClass('fade-modal');
+}
+
+function removeModal(id){
+	//jquery('#modal-'+id).hide();
+	jquery('#modal-'+id).addClass('fadeout-modal');
+	jquery('#modal-'+id).removeClass('modal-backdrop');
+	setTimeout(() => {
+		jquery('#modal-'+id).hide();
+		jquery('#modal-'+id).removeClass('fadeout-modal');
+		jquery('#modal-'+id).removeClass('fade-modal');
+	},1000);
 }
 
 function isValidLS(vtc) {
@@ -111,6 +130,6 @@ setInterval(() => {
 function hideAlert(id){
 	jquery('#alert-'+id).hide();
 }
-$('#lcss-version-onload').html('v0.1.4.1 (Beta)');
-$('#lcss-version-onload').val('v0.1.4.1 (Beta)');
+jquery('#lcss-version-onload').html('v0.1.6 (Beta)');
+jquery('#lcss-version-onload').val('v0.1.6 (Beta)');
 /* END JS*/
