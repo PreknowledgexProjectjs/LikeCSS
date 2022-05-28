@@ -9,17 +9,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="">
+<body class="" enable-custom-context="false">
 
-	<div class="navbar nav-primary">
-		<ul>
-			<li>
-				<a> Home </a>
-			</li>
-			<li>
-				<a> Home 2</a>
-			</li>
-		</ul>
+	<div class="navbar navbar-primary" id="navbar">
+	  <a class="active" href="#home">Home</a>
+	  <a href="#about">About</a>
+	  <a href="#contact">Contact</a>
+	  <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+	    <i class="fa fa-bars"></i>
+	  </a>
+	  <div class="float-right-nav">
+	    <form action="/action_page.php">
+	      <input type="text" placeholder="Search.." name="search">
+	    </form>
+	  </div>
 	</div>
 	<div class="body-container">	
 		<div class="modal" id="modal-1">
@@ -80,69 +83,116 @@
 		</div>
 		<div class="container-card">
 			<div class="card-row row-2">
-				<div class="card">
+				<div class="card" >
 					<img src="https://www.w3schools.com/howto/img_paris.jpg">
-					<h4 class="card-title">Hello 1234</h4>
-				</div>
-			</div>
-			<div class="card-row row-2">
-				<div class="card">
-					<img src="https://www.w3schools.com/howto/img_paris.jpg">
-					<h4 class="card-title">Hello 1234</h4>
-				</div>
-			</div>
-			<div class="card-row row-2">
-				<div class="card">
-					<img src="https://www.w3schools.com/howto/img_paris.jpg">
-					<h4 class="card-title">Hello 1234</h4>
-				</div>
-			</div>
-			<div class="card-row row-2">
-				<div class="card">
-					<img src="https://www.w3schools.com/howto/img_paris.jpg">
-					<h4 class="card-title">Hello 1234</h4>
-				</div>
-			</div>
-			<div class="card-row row-2">
-				<div class="card">
-					<img src="https://www.w3schools.com/howto/img_paris.jpg">
-					<h4 class="card-title">Hello 1234</h4>
-				</div>
-			</div>
-			<div class="card-row row-2">
-				<div class="card">
-					<img src="https://www.w3schools.com/howto/img_paris.jpg">
-					<h4 class="card-title">Hello 1234</h4>
-				</div>
-			</div>
-			<div class="card-row row-2">
-				<div class="card">
-					<img src="https://www.w3schools.com/howto/img_paris.jpg">
-					<h4 class="card-title">Hello 1234</h4>
-				</div>
-			</div>
-			<div class="card-row row-2">
-				<div class="card">
-					<img src="https://www.w3schools.com/howto/img_paris.jpg">
-					<h4 class="card-title">Hello 1234</h4>
-				</div>
-			</div>
-			<div class="card-row row-2">
-				<div class="card">
-					<img src="https://www.w3schools.com/howto/img_paris.jpg">
-					<h4 class="card-title">Hello 1234</h4>
+					<div class="card-body">
+						<h4 class="card-title">Hello 1234</h4>
+					</div>
 				</div>
 			</div>
 			<div class="card-row row-2">
 				<div class="card" >
 					<img src="https://www.w3schools.com/howto/img_paris.jpg">
-					<h4 class="card-title">Hello 1234</h4>
-					
+					<div class="card-body">
+						<h4 class="card-title">Hello 1234</h4>
+					</div>
 				</div>
 			</div>
+			<div class="card-row row-2">
+				<div class="card" >
+					<img src="https://www.w3schools.com/howto/img_paris.jpg">
+					<div class="card-body">
+						<h4 class="card-title">Hello 1234</h4>
+					</div>
+				</div>
+			</div>
+			<div class="card-row row-2">
+				<div class="card" >
+					<img src="https://www.w3schools.com/howto/img_paris.jpg">
+					<div class="card-body">
+						<h4 class="card-title">Hello 1234</h4>
+					</div>
+				</div>
+			</div>
+			<div class="card-row row-2">
+				<div class="card" >
+					<img src="https://www.w3schools.com/howto/img_paris.jpg">
+					<div class="card-body">
+						<h4 class="card-title">Hello 1234</h4>
+					</div>
+				</div>
+			</div>
+			<div class="card-row row-2">
+				<div class="card" >
+					<img src="https://www.w3schools.com/howto/img_paris.jpg">
+					<div class="card-body">
+						<h4 class="card-title">Hello 1234</h4>
+					</div>
+				</div>
+			</div>
+			<div class="card-row row-2">
+				<div class="card" >
+					<img src="https://www.w3schools.com/howto/img_paris.jpg">
+					<div class="card-body">
+						<h4 class="card-title">Hello 1234</h4>
+					</div>
+				</div>
+			</div>
+			<div class="card-row row-2">
+				<div class="card" >
+					<img src="https://www.w3schools.com/howto/img_paris.jpg">
+					<div class="card-body">
+						<h4 class="card-title">Hello 1234</h4>
+					</div>
+				</div>
+			</div>
+			<div class="card-row row-2">
+				<div class="card" >
+					<img src="https://www.w3schools.com/howto/img_paris.jpg">
+					<div class="card-body">
+						<h4 class="card-title">Hello 1234</h4>
+					</div>
+				</div>
+			</div>
+			<div class="card-row row-2">
+				<div class="card" >
+					<img src="https://www.w3schools.com/howto/img_paris.jpg">
+					<div class="card-body">
+						<h4 class="card-title">Hello 1234</h4>
+					</div>
+				</div>
+			</div>
+
+
 			
 		</div>
-		<div class="container" style="margin:0; padding: 0px 0px;">
+
+		<div class="ac-spinner">
+		    <div class="sp-circle sp-elg"></div>
+		    <div class="sp-label">Seriously, still loading extra large...</div>
+		</div>
+
+		<br/>
+
+		<div class="ac-spinner">
+		    <div class="sp-circle sp-lg"></div>
+		    <div class="sp-label">Seriously, still loading large...</div>
+		</div>
+
+		<br/>
+
+		<div class="ac-spinner">
+		    <div class="sp-circle sp-md"></div>
+		    <div class="sp-label">Seriously, still loading meduim...</div>
+		</div>
+
+		<br/>
+
+		<div class="ac-spinner">
+		    <div class="sp-circle sp-sm"></div>
+		    <div class="sp-label">Seriously, still loading small...</div>
+		</div>
+		<div class="container" style="margin:0; padding: 0px 0px; display: none;">
 			<div class="tabs"> 
 	        <div
 	              class="tab"

@@ -7,12 +7,15 @@ if (typeof process === 'undefined' || process === null) {
 	jquery = require('jquery');
 }
 jquery('head').append(`<div id="themes"></div>`);
-jquery('body').append(`<div class="backdrop" id="bkdrplcss" style="position:fixed; width:100%; height:100%;"></div>`);
 /*Requires JQUERY */
 function addMenu(data){
-	jquery('#menu').append(`
-		<li class="inspt"><a href="#" onclick="${data.onclick}"><i class="${data.icon}" aria-hidden="true"></i> jquery{data.title}</a></li>  
-	`);
+	if($('body').attr('enable-custom-context') == "true"){
+		jquery('#menu').append(`
+			<li class="inspt"><a href="#" onclick="${data.onclick}"><i class="${data.icon}" aria-hidden="true"></i> ${data.title}</a></li>  
+		`);
+	}else{
+		throw new Error('contextMenu is not enabled');
+	}
 }
 lcss();
 loadThemes();
@@ -20,8 +23,11 @@ setInterval(() => loadThemes() ,200);
 function lcss(){
 	jquery('#menu').html('');
 	jquery('body').append(`<div id="contextMenu" class="context-menu" style="display: none"><ul class="menu" id="menu"> </ul></div> `);
-	document.onclick = hideMenu;
-	document.oncontextmenu = rightClick;
+
+	if($('body').attr('enable-custom-context') == "true"){
+		document.onclick = hideMenu;
+		document.oncontextmenu = rightClick;
+	}
 
 	function hideMenu() {
 	    document.getElementById("contextMenu")
@@ -36,26 +42,38 @@ function lcss(){
 	    } else {
 	        var menu = document.getElementById("contextMenu")
 	        menu.style.display = 'inline-block';
+	        console.log(e.pageX);
 	        menu.style.left = Math.abs(parseInt(e.pageX) + 5) + "px";
 	        menu.style.top = Math.abs(parseInt(e.pageY) - 5) + "px";
 	    }
 	}
 
-	//Default Menus
-	addMenu({ onclick:"window.location.reload()",icon:"fa fa-refresh",title:"Reload" });
-	addMenu({ onclick:"lcss()",icon:"fa fa-refresh",title:"Reload JS" });
-	addMenu({ onclick:`alert('Press Ctrl+Shift+I')`,icon:"fa fa-code",title:"Ctrl+Shift+I (Inspect Element)" });
+	if($('body').attr('enable-custom-context') == "true"){
+		//Default Menus
+		addMenu({ onclick:"window.location.reload()",icon:"fa fa-refresh",title:"Reload" });
+		addMenu({ onclick:"lcss()",icon:"fa fa-refresh",title:"Reload JS" });
+		addMenu({ onclick:`alert('Press Ctrl+Shift+I')`,icon:"fa fa-code",title:"Ctrl+Shift+I (Inspect Element)" });
+	}
 }
 
-
+function toggleMenu() {
+  // var x = document.getElementById("navbar");
+  // if (x.className === "navbar") {
+  //   x.className += " responsive";
+  // } else {
+  //   x.className = "navbar";
+  // }
+  $('#navbar').toggleClass('responsive');
+  $('#navbar').toggleClass('fade-modal');
+}
 
 function setTheme(id){
 	if(id == "dark-mode"){
-		localStorage.setItem('theme',`jquery{id}`);
+		localStorage.setItem('theme',`${id}`);
 		return;
 	}
-	jquery('body').attr('class',`thmjquery{id}`);
-	localStorage.setItem('theme',`thmjquery{id}`);
+	jquery('body').attr('class',`thm${id}`);
+	localStorage.setItem('theme',`thm${id}`);
 }
 
 function addTheme(css,id){
