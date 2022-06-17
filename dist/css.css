@@ -19,7 +19,7 @@ body {
 .navbar-orange {
   background: #e36402;
 }
-.navbar-orange input[type=text] , .navbar-orange input[type=text]::placeholder{
+.navbar-orange input[type=text] , .navbar-orange input[type=text]::placeholder ,.dark-mode .navbar-orange{
   outline: 0;
   border-width: 0 0 2px;
   border-color: rgba(5, 32, 59, 2.0);
@@ -54,7 +54,7 @@ body {
 
 .dark-mode{
   background: #262522;
-  color: white;
+  color: white !important;
 }
 /* Aligments */
 .align-center{
@@ -117,18 +117,18 @@ body {
   color: black;
 }
 
-.btn-normal-success{
+.btn-normal-success , .dark-mode .btn-normal-success{
   background: rgba(34, 184, 4,0.6); 
   backdrop-filter: blur(8px);
   color: white;
 }
 
-.btn-normal-danger{
+.btn-normal-danger, .dark-mode .btn-normal-danger{
   background: rgba(163, 7, 38,0.6); 
   backdrop-filter: blur(8px);
   color: white;
 }
-.btn-normal-info{
+.btn-normal-info, .dark-mode .btn-normal-info{
   background: rgba(97, 21, 163,0.6); 
   backdrop-filter: blur(8px);
   color: white;
@@ -539,6 +539,17 @@ button:focus {
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+
+.dark-mode .modal{
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.dark-mode .modal-body{
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
 .modal .modal-body .close{
   padding: 12px;
   background: red;
@@ -713,16 +724,16 @@ button:focus {
 }
 
 
-.navbar-orange a{
+.navbar-orange a , .dark-mode .navbar-orange{
   color: white;
 }
 
-.navbar-orange a:hover{
+.navbar-orange a:hover , .dark-mode .navbar-orange a:hover{
   background-color: #b55409;
   color: white;
 }
 
-.navbar-orange a.active{
+.navbar-orange a.active , .dark-mode .navbar-orange .active{
   background-color: #b55409;
   color: white;
 }
@@ -954,6 +965,9 @@ ul {
 .dark-mode *{
   background: #262522;
   color: white;
+}
+.dark-mode .card{
+  border: 1px solid #292828;
 }
 .dark-mode .card , .dark-mode body , .dark-mode h1, .dark-mode input, .dark-mode .form-group{
   background: #262522;

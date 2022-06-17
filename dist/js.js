@@ -1,15 +1,25 @@
-/* CSS Expirment JS */
-var current_theme = localStorage.theme;
 var jquery ;
 if (typeof process === 'undefined' || process === null) {
     jquery = $;
 }else{
 	jquery = require('jquery');
 }
+if(localStorage.lcssloaderjs !== undefined){
+	if(jquery("#lcsscssloadedjs").length == 0) {
+	  console.warn(`You Must Provide id="lcsscssloadedjs" to <script of lcss`);
+	}else{
+		jquery("#lcsscssloadedjs").remove();
+		setTimeout(() => {
+			console.info(`SCRIPT LOADED : ${eval(localStorage.lcssloaderjs)}`);
+		},1200);
+	}
+}
+/* CSS Expirment JS */
+var current_theme = localStorage.theme;
 jquery('head').append(`<div id="themes"></div>`);
 /*Requires JQUERY */
 function addMenu(data){
-	if(jquery('body').attr('enable-custom-context') == "true"){
+	if($('body').attr('enable-custom-context') == "true"){
 		jquery('#menu').append(`
 			<li class="inspt"><a href="#" onclick="${data.onclick}"><i class="${data.icon}" aria-hidden="true"></i> ${data.title}</a></li>  
 		`);
@@ -24,7 +34,7 @@ function lcss(){
 	jquery('#menu').html('');
 	jquery('body').append(`<div id="contextMenu" class="context-menu" style="display: none"><ul class="menu" id="menu"> </ul></div> `);
 
-	if(jquery('body').attr('enable-custom-context') == "true"){
+	if($('body').attr('enable-custom-context') == "true"){
 		document.onclick = hideMenu;
 		document.oncontextmenu = rightClick;
 	}
@@ -48,7 +58,7 @@ function lcss(){
 	    }
 	}
 
-	if(jquery('body').attr('enable-custom-context') == "true"){
+	if($('body').attr('enable-custom-context') == "true"){
 		//Default Menus
 		addMenu({ onclick:"window.location.reload()",icon:"fa fa-refresh",title:"Reload" });
 		addMenu({ onclick:"lcss()",icon:"fa fa-refresh",title:"Reload JS" });
@@ -63,8 +73,8 @@ function toggleMenu() {
   // } else {
   //   x.className = "navbar";
   // }
-  jquery('#navbar').toggleClass('responsive');
-  jquery('#navbar').toggleClass('fade-modal');
+  $('#navbar').toggleClass('responsive');
+  $('#navbar').toggleClass('fade-modal');
 }
 
 function setTheme(id){
@@ -148,6 +158,20 @@ setInterval(() => {
 function hideAlert(id){
 	jquery('#alert-'+id).hide();
 }
-jquery('#lcss-version-onload').html('v0.1.6 (Beta)');
-jquery('#lcss-version-onload').val('v0.1.6 (Beta)');
+jquery('#lcss-version-onload').html('v1.0.0 (Beta)');
+jquery('#lcss-version-onload').val('v1.0.0 (Beta)');
 /* END JS*/
+
+// Fetch if LCSS Loader is in localStorage
+if(localStorage.lcssloader !== undefined){
+	if(jquery("#lcsscssloaded").length == 0) {
+	  console.warn(`You Must Provide id="lcsscssloaded" to link rel of lcss`);
+	}else{
+		jquery("#lcsscssloaded").remove();
+		jquery("head").append(`
+			<style type="text/css">
+				${localStorage.lcssloader}
+			</style>
+		`);
+	}
+}
