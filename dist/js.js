@@ -9,7 +9,7 @@ if (typeof process === 'undefined' || process === null) {
 jquery('head').append(`<div id="themes"></div>`);
 /*Requires JQUERY */
 function addMenu(data){
-	if($('body').attr('enable-custom-context') == "true"){
+	if(jquery('body').attr('enable-custom-context') == "true"){
 		jquery('#menu').append(`
 			<li class="inspt"><a href="#" onclick="${data.onclick}"><i class="${data.icon}" aria-hidden="true"></i> ${data.title}</a></li>  
 		`);
@@ -24,7 +24,7 @@ function lcss(){
 	jquery('#menu').html('');
 	jquery('body').append(`<div id="contextMenu" class="context-menu" style="display: none"><ul class="menu" id="menu"> </ul></div> `);
 
-	if($('body').attr('enable-custom-context') == "true"){
+	if(jquery('body').attr('enable-custom-context') == "true"){
 		document.onclick = hideMenu;
 		document.oncontextmenu = rightClick;
 	}
@@ -48,7 +48,7 @@ function lcss(){
 	    }
 	}
 
-	if($('body').attr('enable-custom-context') == "true"){
+	if(jquery('body').attr('enable-custom-context') == "true"){
 		//Default Menus
 		addMenu({ onclick:"window.location.reload()",icon:"fa fa-refresh",title:"Reload" });
 		addMenu({ onclick:"lcss()",icon:"fa fa-refresh",title:"Reload JS" });
@@ -63,8 +63,8 @@ function toggleMenu() {
   // } else {
   //   x.className = "navbar";
   // }
-  $('#navbar').toggleClass('responsive');
-  $('#navbar').toggleClass('fade-modal');
+  jquery('#navbar').toggleClass('responsive');
+  jquery('#navbar').toggleClass('fade-modal');
 }
 
 function setTheme(id){
