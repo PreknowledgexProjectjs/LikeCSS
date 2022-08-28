@@ -134,6 +134,10 @@ function removeModal(id){
 	},1000);
 }
 
+function toggleSidebar(id) {
+	$(`#sidebar-${id}`).toggle();
+}
+
 function isValidLS(vtc) {
  if(vtc.toString() == "length") return true;
  if(vtc.toString() == "clear") return true;
